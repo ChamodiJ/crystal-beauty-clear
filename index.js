@@ -58,8 +58,20 @@ app.use("/api/products", productRouter)
 app.use("/api/orders", orderRouter)
 
 
+app.get("/", (req, res) => {
+    res.send("Server running");
+});
+
+const PORT = 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+/*
 app.listen(5000, 
     ()=>{
         console.log("Server is running on port 5000")
     }
 )
+    */
