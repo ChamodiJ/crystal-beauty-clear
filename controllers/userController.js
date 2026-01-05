@@ -20,7 +20,10 @@ const transporter = nodemailer.createTransport({
 	},
 });
 
+
 export function createUser(req, res) {
+
+	// hash the password (salting rounds=10)
 	const hashedPassword = bcrypt.hashSync(req.body.password, 10);
 
 	const user = new User({
