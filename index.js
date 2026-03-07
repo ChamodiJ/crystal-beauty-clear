@@ -41,15 +41,13 @@ app.use(
 
 const connectionString = process.env.MONGO_URI
 
-
-mongoose.connect(
-  "mongodb+srv://admin:123@cluster0.fxaje3d.mongodb.net/studentDB"
-).then(() => {
-  console.log("Connect db");
-}).catch(() => {
-  console.log("Not connect db");
+mongoose.connect("mongodb+srv://admin:123@cluster0.fxaje3d.mongodb.net/studentDB")
+.then(() => {
+    console.log("Database Connected");
+})
+.catch((err) => {
+    console.log("Database connection error:", err);
 });
-
 
 app.use("/api/users",userRouter)
 app.use("/api/products", productRouter)
