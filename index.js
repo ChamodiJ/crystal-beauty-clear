@@ -6,6 +6,7 @@ import productRouter from "./routes/productRouter.js";
 import cors from "cors";
 import dotenv from "dotenv";
 import orderRouter from "./routes/orderRoute.js";
+import bodyParser from "body-parser";
 
 dotenv.config();
 
@@ -48,6 +49,8 @@ mongoose.connect("mongodb+srv://admin:123@cluster0.fxaje3d.mongodb.net/studentDB
 .catch((err) => {
     console.log("Database connection error:", err);
 });
+
+app.use(bodyParser.json());
 
 app.use("/api/users",userRouter)
 app.use("/api/products", productRouter)
